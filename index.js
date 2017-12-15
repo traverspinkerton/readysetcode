@@ -57,6 +57,12 @@ app.post('/api/users/image', (req, res) => {
     .catch(error => res.send(error));
 });
 
+// The "catchall" handler: for any request that does not match one of the above
+// send index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port);
 
