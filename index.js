@@ -3,6 +3,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const path = require('path');
 
 const User = require('./db');
 
@@ -10,10 +11,6 @@ const app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 // All API endpoints under '/api'
 app.get('/api/users', (req, res) => {
