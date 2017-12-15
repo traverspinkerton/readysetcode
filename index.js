@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 const User = require('./db');
 
@@ -35,6 +36,25 @@ app.post('/api/users', /*upload.single('image'),*/ (req, res) => {
     console.log(`Saved ${user.name} as a new user in our database!`);
     res.json(req.body);
   });
+});
+
+app.post('/api/users/image', (req, res) => {
+  console.log(req.body);
+
+  // set as env variable
+  const CLOUDINARY_URL= 'https://api.cloudinary.com/v1_1/dqik7vajf';
+  const CLOUDINARY_UPLOAD_PRESET= 'zy2frnkx';
+
+  axios({
+    url: 'api/users/image',
+    method: 'POST',
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded"
+    },
+    body: req.body
+  })
+    .then(succes => res.send(succes))
+    .catch(error => res.send(error));
 });
 
 const port = process.env.PORT || 5000;
