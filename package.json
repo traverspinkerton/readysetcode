@@ -1,0 +1,25 @@
+{
+  "name": "ready-set-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traverspinkerton/readysetcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/traverspinkerton/readysetcode/issues"
+  },
+  "homepage": "https://github.com/traverspinkerton/readysetcode#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.7"
+  }
+}
